@@ -10,7 +10,7 @@ Bookee is a platform that connects event organizers directly with DJs through a 
 - Smart booking requests with Google Calendar sync  
 - Real-time availability for fast decisions  
 - Structured booking form with all gig info  
-- Secure payment handling (coming soon)
+- Secure payment handling
 
 ---
 
