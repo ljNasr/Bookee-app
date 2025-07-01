@@ -181,87 +181,45 @@ export default function Messages() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#222222]">
       <Navigation />
 
       <main className="flex-1 pt-16">
         <div className="container h-[calc(100vh-4rem)] flex flex-col">
           <div className="py-4">
-            <h1 className="text-2xl font-bold font-heading">Messages</h1>
-            <p className="text-muted-foreground">Communicate with event organizers and artists</p>
+            <h1 className="text-2xl font-bold font-heading text-white">Messages</h1>
+            <p className="text-gray-300">Communicate with event organizers and artists</p>
           </div>
 
-          <div className="flex flex-1 overflow-hidden rounded-lg border">
-            <div className="w-full md:w-80 border-r overflow-y-auto">
-              <div className="p-4 border-b">
-                <Input placeholder="Search conversations..." />
-              </div>
-
-              <Tabs defaultValue="all">
-                <div className="px-4 pt-2">
-                  <TabsList className="w-full">
-                    <TabsTrigger value="all" className="flex-1">
-                      All
-                    </TabsTrigger>
-                    <TabsTrigger value="unread" className="flex-1">
-                      Unread
-                    </TabsTrigger>
-                    <TabsTrigger value="bookings" className="flex-1">
-                      Bookings
-                    </TabsTrigger>
-                  </TabsList>
+          <div className="flex flex-1 overflow-hidden rounded-lg border border-[#424141]">
+            <div className="w-full md:w-80 border-r border-[#424141] overflow-y-auto">
+              <Card className="h-full bg-[#424141] border-0 rounded-none">
+                <div className="p-4 border-b border-[#22b5f3]/20">
+                  <Input placeholder="Search conversations..." className="bg-[#222222] border-[#22b5f3]/20 text-white placeholder:text-gray-400" />
                 </div>
 
-                <TabsContent value="all" className="m-0">
-                  <div className="divide-y">
-                    {contacts.map((contact) => (
-                      <div
-                        key={contact.id}
-                        className={`p-4 cursor-pointer hover:bg-muted transition-colors ${
-                          activeChat === contact.id ? "bg-muted" : ""
-                        }`}
-                        onClick={() => setActiveChat(contact.id)}
-                      >
-                        <div className="flex items-start gap-3">
-                          <div className="relative">
-                            <div className="h-10 w-10 rounded-full overflow-hidden">
-                              <Image
-                                src={contact.avatar || "/placeholder.svg"}
-                                alt={contact.name}
-                                width={40}
-                                height={40}
-                                className="object-cover"
-                              />
-                            </div>
-                            {contact.unread && (
-                              <span className="absolute top-0 right-0 h-3 w-3 rounded-full bg-primary" />
-                            )}
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex justify-between items-start">
-                              <h3 className="font-medium truncate">{contact.name}</h3>
-                              <span className="text-xs text-muted-foreground whitespace-nowrap ml-2">
-                                {contact.time}
-                              </span>
-                            </div>
-                            <p className="text-xs text-muted-foreground">{contact.organization}</p>
-                            <p className="text-sm truncate mt-1">{contact.lastMessage}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
+                <Tabs defaultValue="all">
+                  <div className="px-4 pt-2">
+                    <TabsList className="w-full bg-[#222222]">
+                      <TabsTrigger value="all" className="flex-1 text-gray-300 data-[state=active]:text-white data-[state=active]:bg-[#22b5f3]">
+                        All
+                      </TabsTrigger>
+                      <TabsTrigger value="unread" className="flex-1 text-gray-300 data-[state=active]:text-white data-[state=active]:bg-[#22b5f3]">
+                        Unread
+                      </TabsTrigger>
+                      <TabsTrigger value="bookings" className="flex-1 text-gray-300 data-[state=active]:text-white data-[state=active]:bg-[#22b5f3]">
+                        Bookings
+                      </TabsTrigger>
+                    </TabsList>
                   </div>
-                </TabsContent>
 
-                <TabsContent value="unread" className="m-0">
-                  <div className="divide-y">
-                    {contacts
-                      .filter((contact) => contact.unread)
-                      .map((contact) => (
+                  <TabsContent value="all" className="m-0">
+                    <div className="divide-y divide-[#22b5f3]/20">
+                      {contacts.map((contact) => (
                         <div
                           key={contact.id}
-                          className={`p-4 cursor-pointer hover:bg-muted transition-colors ${
-                            activeChat === contact.id ? "bg-muted" : ""
+                          className={`p-4 cursor-pointer hover:bg-[#222222] transition-colors ${
+                            activeChat === contact.id ? "bg-[#222222]" : ""
                           }`}
                           onClick={() => setActiveChat(contact.id)}
                         >
@@ -276,36 +234,80 @@ export default function Messages() {
                                   className="object-cover"
                                 />
                               </div>
-                              <span className="absolute top-0 right-0 h-3 w-3 rounded-full bg-primary" />
+                              {contact.unread && (
+                                <span className="absolute top-0 right-0 h-3 w-3 rounded-full bg-[#22b5f3]" />
+                              )}
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex justify-between items-start">
-                                <h3 className="font-medium truncate">{contact.name}</h3>
-                                <span className="text-xs text-muted-foreground whitespace-nowrap ml-2">
+                                <h3 className="font-medium truncate text-white">{contact.name}</h3>
+                                <span className="text-xs text-gray-300 whitespace-nowrap ml-2">
                                   {contact.time}
                                 </span>
                               </div>
-                              <p className="text-xs text-muted-foreground">{contact.organization}</p>
-                              <p className="text-sm truncate mt-1">{contact.lastMessage}</p>
+                              <p className="text-xs text-gray-300">{contact.organization}</p>
+                              <p className="text-sm truncate mt-1 text-gray-300">{contact.lastMessage}</p>
                             </div>
                           </div>
                         </div>
                       ))}
-                  </div>
-                </TabsContent>
+                    </div>
+                  </TabsContent>
 
-                <TabsContent value="bookings" className="m-0">
-                  <div className="p-8 text-center text-muted-foreground">
-                    <p>Booking-related messages will appear here</p>
-                  </div>
-                </TabsContent>
-              </Tabs>
+                  <TabsContent value="unread" className="m-0">
+                    <div className="divide-y divide-[#22b5f3]/20">
+                      {contacts
+                        .filter((contact) => contact.unread)
+                        .map((contact) => (
+                          <div
+                            key={contact.id}
+                            className={`p-4 cursor-pointer hover:bg-[#222222] transition-colors ${
+                              activeChat === contact.id ? "bg-[#222222]" : ""
+                            }`}
+                            onClick={() => setActiveChat(contact.id)}
+                          >
+                            <div className="flex items-start gap-3">
+                              <div className="relative">
+                                <div className="h-10 w-10 rounded-full overflow-hidden">
+                                  <Image
+                                    src={contact.avatar || "/placeholder.svg"}
+                                    alt={contact.name}
+                                    width={40}
+                                    height={40}
+                                    className="object-cover"
+                                  />
+                                </div>
+                                <span className="absolute top-0 right-0 h-3 w-3 rounded-full bg-[#22b5f3]" />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <div className="flex justify-between items-start">
+                                  <h3 className="font-medium truncate text-white">{contact.name}</h3>
+                                  <span className="text-xs text-gray-300 whitespace-nowrap ml-2">
+                                    {contact.time}
+                                  </span>
+                                </div>
+                                <p className="text-xs text-gray-300">{contact.organization}</p>
+                                <p className="text-sm truncate mt-1 text-gray-300">{contact.lastMessage}</p>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  </TabsContent>
+
+                  <TabsContent value="bookings" className="m-0">
+                    <div className="p-8 text-center text-gray-300">
+                      <p>Booking-related messages will appear here</p>
+                    </div>
+                  </TabsContent>
+                </Tabs>
+              </Card>
             </div>
 
-            <div className="hidden md:flex flex-col flex-1">
+            <div className="hidden md:flex flex-col flex-1 bg-[#222222]">
               {activeChat && (
                 <>
-                  <div className="p-4 border-b flex items-center justify-between">
+                  <div className="p-4 border-b border-[#424141] flex items-center justify-between bg-[#424141]">
                     <div className="flex items-center gap-3">
                       <div className="h-10 w-10 rounded-full overflow-hidden">
                         <Image
@@ -317,14 +319,14 @@ export default function Messages() {
                         />
                       </div>
                       <div>
-                        <h3 className="font-medium">{contacts.find((c) => c.id === activeChat)?.name}</h3>
-                        <p className="text-xs text-muted-foreground">
+                        <h3 className="font-medium text-white">{contacts.find((c) => c.id === activeChat)?.name}</h3>
+                        <p className="text-xs text-gray-300">
                           {contacts.find((c) => c.id === activeChat)?.organization}
                         </p>
                       </div>
                     </div>
                     <div>
-                      <Button variant="outline" size="sm">
+                      <Button variant="outline" size="sm" className="border-[#22b5f3] text-[#22b5f3] hover:bg-[#22b5f3] hover:text-white">
                         View Booking
                       </Button>
                     </div>
@@ -335,13 +337,13 @@ export default function Messages() {
                       <div key={index} className={`flex ${msg.sender === "me" ? "justify-end" : "justify-start"}`}>
                         <div
                           className={`max-w-[80%] rounded-lg p-3 ${
-                            msg.sender === "me" ? "bg-primary text-primary-foreground" : "bg-muted"
+                            msg.sender === "me" ? "bg-[#0071bc] text-white" : "bg-[#424141] text-white"
                           }`}
                         >
                           <div className="whitespace-pre-line">{msg.content}</div>
                           <div
                             className={`text-xs mt-1 ${
-                              msg.sender === "me" ? "text-primary-foreground/70" : "text-muted-foreground"
+                              msg.sender === "me" ? "text-white/70" : "text-gray-300"
                             }`}
                           >
                             {msg.time}
@@ -352,14 +354,14 @@ export default function Messages() {
 
                     {activeChat === "antoine" && (
                       <div className="flex justify-start">
-                        <Card className="max-w-[80%] p-4">
+                        <Card className="max-w-[80%] p-4 bg-[#424141] border-[#22b5f3]/20">
                           <div className="flex items-center gap-2 mb-2">
-                            <Calendar className="h-4 w-4 text-primary" />
-                            <span className="font-medium">Booking Request</span>
+                            <Calendar className="h-4 w-4 text-[#22b5f3]" />
+                            <span className="font-medium text-white">Booking Request</span>
                           </div>
                           <div className="space-y-2 text-sm">
-                            <p className="font-medium">L'Espace Club, Rennes</p>
-                            <p className="text-muted-foreground">March 7th, 2024</p>
+                            <p className="font-medium text-white">L'Espace Club, Rennes</p>
+                            <p className="text-gray-300">March 7th, 2024</p>
                           </div>
                           <BookingRequestModal
                             request={{
@@ -389,18 +391,18 @@ export default function Messages() {
                     )}
                   </div>
 
-                  <div className="p-4 border-t">
+                  <div className="p-4 border-t border-[#424141] bg-[#424141]">
                     <form onSubmit={handleSendMessage} className="flex gap-2">
-                      <Button type="button" size="icon" variant="ghost" className="shrink-0">
+                      <Button type="button" size="icon" variant="ghost" className="shrink-0 text-[#22b5f3] hover:bg-[#222222]">
                         <Paperclip className="h-5 w-5" />
                       </Button>
                       <Input
                         placeholder="Type a message..."
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        className="flex-1"
+                        className="flex-1 bg-[#222222] border-[#22b5f3]/20 text-white placeholder:text-gray-400"
                       />
-                      <Button type="submit" size="icon" className="shrink-0">
+                      <Button type="submit" size="icon" className="shrink-0 bg-[#0071bc] hover:bg-[#005a94]">
                         <Send className="h-5 w-5" />
                       </Button>
                     </form>

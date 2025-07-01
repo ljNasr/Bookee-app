@@ -106,30 +106,30 @@ export default function Register() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#222222]">
       <Navigation />
 
       <main className="flex-1 flex items-center justify-center py-12 px-4">
-        <Card className="w-full max-w-md">
+        <Card className="w-full max-w-md bg-[#333333] border-[#22b5f3]/20">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold text-center font-heading">Create your account</CardTitle>
-            <CardDescription className="text-center">
+            <CardTitle className="text-2xl font-bold text-center font-heading text-white">Create your account</CardTitle>
+            <CardDescription className="text-center text-gray-300">
               Join Bookee to connect with artists and event organizers
             </CardDescription>
           </CardHeader>
 
           <CardContent className="space-y-4">
             {error && (
-              <Alert variant="destructive">
+              <Alert variant="destructive" className="bg-red-500/20 border-red-500/20 text-red-400">
                 <AlertCircle className="h-4 w-4" />
                 <AlertDescription>{error}</AlertDescription>
               </Alert>
             )}
 
             <Tabs defaultValue={userType} onValueChange={(value) => setUserType(value as "artist" | "organizer")}>
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="artist">I'm an Artist</TabsTrigger>
-                <TabsTrigger value="organizer">I'm an Organizer</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-2 bg-[#222222] border border-gray-600">
+                <TabsTrigger value="artist" className="data-[state=active]:bg-[#22b5f3] data-[state=active]:text-white text-gray-300">I'm an Artist</TabsTrigger>
+                <TabsTrigger value="organizer" className="data-[state=active]:bg-[#22b5f3] data-[state=active]:text-white text-gray-300">I'm an Organizer</TabsTrigger>
               </TabsList>
             </Tabs>
 
@@ -137,7 +137,7 @@ export default function Register() {
               {step === 1 && (
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email" className="text-gray-300">Email</Label>
                     <Input
                       id="email"
                       name="email"
@@ -146,11 +146,12 @@ export default function Register() {
                       value={formData.email}
                       onChange={handleChange}
                       required
+                      className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="password">Password</Label>
+                    <Label htmlFor="password" className="text-gray-300">Password</Label>
                     <Input
                       id="password"
                       name="password"
@@ -158,11 +159,12 @@ export default function Register() {
                       value={formData.password}
                       onChange={handleChange}
                       required
+                      className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="confirmPassword">Confirm Password</Label>
+                    <Label htmlFor="confirmPassword" className="text-gray-300">Confirm Password</Label>
                     <Input
                       id="confirmPassword"
                       name="confirmPassword"
@@ -170,12 +172,13 @@ export default function Register() {
                       value={formData.confirmPassword}
                       onChange={handleChange}
                       required
+                      className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]"
                     />
                     {!passwordsMatch && formData.confirmPassword && (
-                      <p className="text-sm text-destructive">Passwords do not match</p>
+                      <p className="text-sm text-red-400">Passwords do not match</p>
                     )}
                     {passwordsMatch && formData.confirmPassword && (
-                      <div className="flex items-center gap-1 text-sm text-green-600">
+                      <div className="flex items-center gap-1 text-sm text-green-400">
                         <CheckCircle className="h-4 w-4" />
                         <span>Passwords match</span>
                       </div>
@@ -188,44 +191,47 @@ export default function Register() {
                 <div className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="firstName">First Name</Label>
+                      <Label htmlFor="firstName" className="text-gray-300">First Name</Label>
                       <Input
                         id="firstName"
                         name="firstName"
                         value={formData.firstName}
                         onChange={handleChange}
                         required
+                        className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]"
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="lastName">Last Name</Label>
-                      <Input id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required />
+                      <Label htmlFor="lastName" className="text-gray-300">Last Name</Label>
+                      <Input id="lastName" name="lastName" value={formData.lastName} onChange={handleChange} required className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]" />
                     </div>
                   </div>
 
                   {userType === "artist" && (
                     <div className="space-y-2">
-                      <Label htmlFor="artistName">Artist/DJ Name</Label>
+                      <Label htmlFor="artistName" className="text-gray-300">Artist/DJ Name</Label>
                       <Input
                         id="artistName"
                         name="artistName"
                         value={formData.artistName}
                         onChange={handleChange}
                         required
+                        className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]"
                       />
                     </div>
                   )}
 
                   {userType === "organizer" && (
                     <div className="space-y-2">
-                      <Label htmlFor="companyName">Company/Organization Name</Label>
+                      <Label htmlFor="companyName" className="text-gray-300">Company/Organization Name</Label>
                       <Input
                         id="companyName"
                         name="companyName"
                         value={formData.companyName}
                         onChange={handleChange}
                         required
+                        className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]"
                       />
                     </div>
                   )}
@@ -237,12 +243,12 @@ export default function Register() {
                   {userType === "artist" && (
                     <>
                       <div className="space-y-2">
-                        <Label htmlFor="genre">Music Genre</Label>
+                        <Label htmlFor="genre" className="text-gray-300">Music Genre</Label>
                         <Select value={formData.genre} onValueChange={(value) => handleSelectChange("genre", value)}>
-                          <SelectTrigger>
+                          <SelectTrigger className="bg-[#222222] border-gray-600 text-white focus:border-[#22b5f3]">
                             <SelectValue placeholder="Select your primary genre" />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent className="bg-[#333333] border-[#22b5f3]/20">
                             <SelectItem value="techno">Techno</SelectItem>
                             <SelectItem value="house">House</SelectItem>
                             <SelectItem value="trance">Trance</SelectItem>
@@ -258,7 +264,7 @@ export default function Register() {
 
                       {formData.genre === "other" && (
                         <div className="space-y-2">
-                          <Label htmlFor="customGenre">Specify Genre</Label>
+                          <Label htmlFor="customGenre" className="text-gray-300">Specify Genre</Label>
                           <Input
                             id="customGenre"
                             name="customGenre"
@@ -266,20 +272,21 @@ export default function Register() {
                             onChange={handleChange}
                             placeholder="Enter your genre"
                             required
+                            className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]"
                           />
                         </div>
                       )}
 
                       <div className="space-y-2">
-                        <Label htmlFor="artistType">Artist Type</Label>
+                        <Label htmlFor="artistType" className="text-gray-300">Artist Type</Label>
                         <Select
                           value={formData.artistType}
                           onValueChange={(value) => handleSelectChange("artistType", value)}
                         >
-                          <SelectTrigger>
+                          <SelectTrigger className="bg-[#222222] border-gray-600 text-white focus:border-[#22b5f3]">
                             <SelectValue placeholder="Select your artist type" />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent className="bg-[#333333] border-[#22b5f3]/20">
                             <SelectItem value="dj">DJ</SelectItem>
                             <SelectItem value="producer">Producer</SelectItem>
                             <SelectItem value="live-act">Live Act</SelectItem>
@@ -293,7 +300,7 @@ export default function Register() {
 
                       {formData.artistType === "other" && (
                         <div className="space-y-2">
-                          <Label htmlFor="customArtistType">Specify Artist Type</Label>
+                          <Label htmlFor="customArtistType" className="text-gray-300">Specify Artist Type</Label>
                           <Input
                             id="customArtistType"
                             name="customArtistType"
@@ -301,6 +308,7 @@ export default function Register() {
                             onChange={handleChange}
                             placeholder="Enter your artist type"
                             required
+                            className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]"
                           />
                         </div>
                       )}
@@ -310,15 +318,15 @@ export default function Register() {
                   {userType === "organizer" && (
                     <>
                       <div className="space-y-2">
-                        <Label htmlFor="organizerType">Organizer Type</Label>
+                        <Label htmlFor="organizerType" className="text-gray-300">Organizer Type</Label>
                         <Select
                           value={formData.organizerType}
                           onValueChange={(value) => handleSelectChange("organizerType", value)}
                         >
-                          <SelectTrigger>
+                          <SelectTrigger className="bg-[#222222] border-gray-600 text-white focus:border-[#22b5f3]">
                             <SelectValue placeholder="Select your organizer type" />
                           </SelectTrigger>
-                          <SelectContent>
+                          <SelectContent className="bg-[#333333] border-[#22b5f3]/20">
                             <SelectItem value="venue">Venue</SelectItem>
                             <SelectItem value="promoter">Promoter</SelectItem>
                             <SelectItem value="festival">Festival</SelectItem>
@@ -332,7 +340,7 @@ export default function Register() {
 
                       {formData.organizerType === "other" && (
                         <div className="space-y-2">
-                          <Label htmlFor="customOrganizerType">Specify Organizer Type</Label>
+                          <Label htmlFor="customOrganizerType" className="text-gray-300">Specify Organizer Type</Label>
                           <Input
                             id="customOrganizerType"
                             name="customOrganizerType"
@@ -340,6 +348,7 @@ export default function Register() {
                             onChange={handleChange}
                             placeholder="Enter your organizer type"
                             required
+                            className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]"
                           />
                         </div>
                       )}
@@ -348,7 +357,7 @@ export default function Register() {
                 </div>
               )}
 
-              <Button type="submit" className="w-full" disabled={isLoading}>
+              <Button type="submit" className="w-full bg-[#22b5f3] hover:bg-[#0071bc]" disabled={isLoading}>
                 {isLoading ? "Processing..." : step < 3 ? "Continue" : "Create Account"}
               </Button>
             </form>
@@ -357,17 +366,17 @@ export default function Register() {
               <>
                 <div className="relative">
                   <div className="absolute inset-0 flex items-center">
-                    <Separator className="w-full" />
+                    <Separator className="w-full bg-gray-600" />
                   </div>
                   <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+                    <span className="bg-[#333333] px-2 text-gray-400">Or continue with</span>
                   </div>
                 </div>
 
                 <Button
                   variant="outline"
                   type="button"
-                  className="w-full"
+                  className="w-full border-[#22b5f3] text-[#22b5f3] hover:bg-[#22b5f3] hover:text-white"
                   onClick={handleGoogleSignup}
                   disabled={isLoading}
                 >
@@ -398,13 +407,13 @@ export default function Register() {
           <CardFooter className="flex flex-col space-y-4">
             <div className="flex items-center justify-center space-x-2">
               {[1, 2, 3].map((i) => (
-                <div key={i} className={`h-2 w-2 rounded-full ${step === i ? "bg-primary" : "bg-gray-300"}`} />
+                <div key={i} className={`h-2 w-2 rounded-full ${step === i ? "bg-[#22b5f3]" : "bg-gray-600"}`} />
               ))}
             </div>
 
-            <div className="text-center text-sm">
+            <div className="text-center text-sm text-gray-300">
               Already have an account?{" "}
-              <Link href="/login" className="text-primary hover:underline">
+              <Link href="/login" className="text-[#22b5f3] hover:underline">
                 Log in
               </Link>
             </div>

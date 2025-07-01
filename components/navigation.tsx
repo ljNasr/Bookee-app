@@ -40,11 +40,13 @@ export function Navigation() {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#222222] border-b border-gray-700">
       <div className="flex items-center justify-between px-4 py-3 md:px-6">
         <Link href="/" className="flex items-center">
-          <Image src="/images/logo.png" alt="Bookee" width={40} height={40} className="w-10 h-10" />
-          <span className="ml-2 text-xl font-bold text-primary">Bookee</span>
+          <div className="w-10 h-10 bg-[#222222] rounded-lg flex items-center justify-center border border-[#22b5f3]/20">
+            <Image src="/images/logo.png" alt="Bookee" width={32} height={32} className="w-8 h-8" />
+          </div>
+          <span className="ml-2 text-xl font-bold text-white">Bookee</span>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-6">
@@ -54,7 +56,7 @@ export function Navigation() {
               href={route.href}
               className={cn(
                 "flex items-center text-sm font-medium transition-colors hover:text-primary",
-                route.active ? "text-primary" : "text-muted-foreground",
+                route.active ? "text-primary" : "text-gray-300",
               )}
             >
               <route.icon className="w-4 h-4 mr-2" />
@@ -64,7 +66,7 @@ export function Navigation() {
         </nav>
 
         <div className="flex items-center md:hidden">
-          <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+          <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu" className="text-white hover:bg-gray-700">
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </Button>
         </div>
@@ -72,14 +74,14 @@ export function Navigation() {
 
       {isOpen && (
         <div className="md:hidden">
-          <nav className="flex flex-col p-4 space-y-4 bg-white">
+          <nav className="flex flex-col p-4 space-y-4 bg-[#222222] border-t border-gray-700">
             {routes.map((route) => (
               <Link
                 key={route.href}
                 href={route.href}
                 className={cn(
                   "flex items-center text-sm font-medium transition-colors hover:text-primary p-2 rounded-md",
-                  route.active ? "text-primary bg-blue-50" : "text-muted-foreground",
+                  route.active ? "text-primary bg-gray-700" : "text-gray-300",
                 )}
                 onClick={() => setIsOpen(false)}
               >

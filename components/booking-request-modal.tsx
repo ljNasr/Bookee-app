@@ -74,13 +74,13 @@ export function BookingRequestModal({ request, onAccept, onDecline, onNegotiate 
             </DialogHeader>
 
             <div className="grid gap-6 py-4">
-              <div className="flex items-center gap-4 p-4 bg-blue-50 rounded-lg">
-                <div className="h-12 w-12 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+              <div className="flex items-center gap-4 p-4 bg-[#424141] rounded-lg border border-[#22b5f3]/20">
+                <div className="h-12 w-12 rounded-full bg-[#22b5f3]/20 text-[#22b5f3] flex items-center justify-center">
                   <Music className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold font-heading">{request.event}</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <h3 className="font-bold font-heading text-white">{request.event}</h3>
+                  <p className="text-sm text-gray-300">
                     {request.venue}, {request.location}
                   </p>
                 </div>
@@ -88,77 +88,77 @@ export function BookingRequestModal({ request, onAccept, onDecline, onNegotiate 
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="flex items-start gap-3">
-                  <Calendar className="h-5 w-5 text-primary mt-0.5" />
+                  <Calendar className="h-5 w-5 text-[#22b5f3] mt-0.5" />
                   <div>
-                    <h4 className="font-medium">Date</h4>
-                    <p className="text-sm text-muted-foreground">{request.date}</p>
+                    <h4 className="font-medium text-white">Date</h4>
+                    <p className="text-sm text-gray-300">{request.date}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock className="h-5 w-5 text-primary mt-0.5" />
+                  <Clock className="h-5 w-5 text-[#22b5f3] mt-0.5" />
                   <div>
-                    <h4 className="font-medium">Set Time</h4>
-                    <p className="text-sm text-muted-foreground">
+                    <h4 className="font-medium text-white">Set Time</h4>
+                    <p className="text-sm text-gray-300">
                       {request.time} ({request.duration})
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-primary mt-0.5" />
+                  <MapPin className="h-5 w-5 text-[#22b5f3] mt-0.5" />
                   <div>
-                    <h4 className="font-medium">Venue</h4>
-                    <p className="text-sm text-muted-foreground">
+                    <h4 className="font-medium text-white">Venue</h4>
+                    <p className="text-sm text-gray-300">
                       {request.venue}, {request.location}
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Users className="h-5 w-5 text-primary mt-0.5" />
+                  <Users className="h-5 w-5 text-[#22b5f3] mt-0.5" />
                   <div>
-                    <h4 className="font-medium">Capacity</h4>
-                    <p className="text-sm text-muted-foreground">{request.capacity} people</p>
+                    <h4 className="font-medium text-white">Capacity</h4>
+                    <p className="text-sm text-gray-300">{request.capacity} people</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <DollarSign className="h-5 w-5 text-primary mt-0.5" />
+                  <DollarSign className="h-5 w-5 text-[#22b5f3] mt-0.5" />
                   <div>
-                    <h4 className="font-medium">Ticket Price</h4>
-                    <p className="text-sm text-muted-foreground">{request.ticketPrice}</p>
+                    <h4 className="font-medium text-white">Ticket Price</h4>
+                    <p className="text-sm text-gray-300">{request.ticketPrice}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <DollarSign className="h-5 w-5 text-primary mt-0.5" />
+                  <DollarSign className="h-5 w-5 text-[#22b5f3] mt-0.5" />
                   <div>
-                    <h4 className="font-medium">Offer</h4>
-                    <p className="text-sm text-muted-foreground font-bold">{request.offer}</p>
+                    <h4 className="font-medium text-white">Offer</h4>
+                    <p className="text-sm text-[#22b5f3] font-bold">{request.offer}</p>
                   </div>
                 </div>
               </div>
 
-              <div className="border-t pt-4">
-                <h4 className="font-medium mb-2">Organizer Information</h4>
+              <div className="border-t border-[#424141] pt-4">
+                <h4 className="font-medium mb-2 text-white">Organizer Information</h4>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <p className="text-sm text-muted-foreground">Name</p>
-                    <p className="font-medium">{request.organizer.name}</p>
+                    <p className="text-sm text-gray-300">Name</p>
+                    <p className="font-medium text-white">{request.organizer.name}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">Company</p>
-                    <p className="font-medium">{request.organizer.company}</p>
+                    <p className="text-sm text-gray-300">Company</p>
+                    <p className="font-medium text-white">{request.organizer.company}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">Email</p>
-                    <p className="font-medium">{request.organizer.email}</p>
+                    <p className="text-sm text-gray-300">Email</p>
+                    <p className="font-medium text-white">{request.organizer.email}</p>
                   </div>
                   {request.organizer.phone && (
                     <div>
-                      <p className="text-sm text-muted-foreground">Phone</p>
-                      <p className="font-medium">{request.organizer.phone}</p>
+                      <p className="text-sm text-gray-300">Phone</p>
+                      <p className="font-medium text-white">{request.organizer.phone}</p>
                     </div>
                   )}
                 </div>
@@ -183,11 +183,11 @@ export function BookingRequestModal({ request, onAccept, onDecline, onNegotiate 
 
         {status === "accepted" && (
           <div className="py-12 text-center">
-            <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-              <CheckCircle className="h-8 w-8 text-green-600" />
+            <div className="mx-auto w-16 h-16 bg-[#22b5f3]/20 rounded-full flex items-center justify-center mb-4">
+              <CheckCircle className="h-8 w-8 text-[#22b5f3]" />
             </div>
-            <h2 className="text-2xl font-bold mb-2 font-heading">Booking Accepted!</h2>
-            <p className="text-muted-foreground mb-6">
+            <h2 className="text-2xl font-bold mb-2 font-heading text-white">Booking Accepted!</h2>
+            <p className="text-gray-300 mb-6">
               You've accepted the booking request for {request.event}. The organizer will be notified.
             </p>
           </div>
@@ -195,11 +195,11 @@ export function BookingRequestModal({ request, onAccept, onDecline, onNegotiate 
 
         {status === "declined" && (
           <div className="py-12 text-center">
-            <div className="mx-auto w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
-              <X className="h-8 w-8 text-red-600" />
+            <div className="mx-auto w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mb-4">
+              <X className="h-8 w-8 text-red-500" />
             </div>
-            <h2 className="text-2xl font-bold mb-2 font-heading">Booking Declined</h2>
-            <p className="text-muted-foreground mb-6">
+            <h2 className="text-2xl font-bold mb-2 font-heading text-white">Booking Declined</h2>
+            <p className="text-gray-300 mb-6">
               You've declined the booking request for {request.event}. The organizer will be notified.
             </p>
           </div>
@@ -207,8 +207,8 @@ export function BookingRequestModal({ request, onAccept, onDecline, onNegotiate 
 
         {status === "negotiating" && (
           <div className="py-6">
-            <h2 className="text-2xl font-bold mb-4 font-heading">Negotiate Terms</h2>
-            <p className="text-muted-foreground mb-6">
+            <h2 className="text-2xl font-bold mb-4 font-heading text-white">Negotiate Terms</h2>
+            <p className="text-gray-300 mb-6">
               You can now message the organizer to negotiate the terms of this booking.
             </p>
             <Button className="w-full">Open Chat with {request.organizer.name}</Button>

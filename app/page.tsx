@@ -22,10 +22,10 @@ export default function Home() {
                   real-time availability, and secure payments.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                  <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
+                  <Button asChild size="lg" className="bg-[#0071bc] text-white hover:bg-[#005a94] border-0">
                     <Link href="/register">Get Started</Link>
                   </Button>
-                  <Button asChild size="lg" className="border-white text-white hover:bg-white/10">
+                  <Button asChild size="lg" className="bg-transparent border-2 border-[#22b5f3] text-[#22b5f3] hover:bg-[#22b5f3] hover:text-white">
                     <Link href="/how-it-works">Learn More</Link>
                   </Button>
                 </div>
@@ -112,7 +112,7 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 md:py-24 bg-blue-50">
+        <section className="py-16 md:py-24 bg-[#424141]">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center text-center space-y-4">
               <h2 className="text-3xl font-bold tracking-tighter">Ready to Get Started?</h2>
@@ -120,10 +120,10 @@ export default function Home() {
                 Join Bookee today and transform how you book or get booked for events
               </p>
               <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+                <Button asChild size="lg" className="bg-[#0071bc] text-white hover:bg-[#005a94] border-0">
                   <Link href="/register">Sign Up as Artist</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary/10">
+                <Button asChild variant="outline" size="lg" className="border-2 border-[#22b5f3] text-[#22b5f3] hover:bg-[#22b5f3] hover:text-white">
                   <Link href="/register?type=organizer">Sign Up as Organizer</Link>
                 </Button>
               </div>
@@ -132,7 +132,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t py-12 md:py-16 bg-gray-50">
+      <footer className="border-t border-[#424141] py-12 md:py-16 bg-[#222222]">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col md:flex-row justify-between gap-8 mb-8">
             <div className="flex flex-col gap-4">

@@ -57,21 +57,21 @@ export default function Login() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-[#222222]">
       <Navigation />
 
       <main className="flex-1 flex items-center justify-center py-12 px-4">
-        <Card className="w-full max-w-md">
+        <Card className="w-full max-w-md bg-[#333333] border-[#22b5f3]/20">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl font-bold text-center font-heading">Log in to Bookee</CardTitle>
-            <CardDescription className="text-center">
+            <CardTitle className="text-2xl font-bold text-center font-heading text-white">Log in to Bookee</CardTitle>
+            <CardDescription className="text-center text-gray-300">
               Enter your email and password to access your account
             </CardDescription>
           </CardHeader>
 
           <CardContent className="space-y-4">
             {error && (
-              <Alert variant="destructive">
+              <Alert variant="destructive" className="bg-red-500/20 border-red-500/20 text-red-400">
                 <AlertCircle className="h-4 w-4" />
                 <AlertDescription>{error}</AlertDescription>
               </Alert>
@@ -79,7 +79,7 @@ export default function Login() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email" className="text-gray-300">Email</Label>
                 <Input
                   id="email"
                   type="email"
@@ -87,13 +87,14 @@ export default function Login() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]"
                 />
               </div>
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="password">Password</Label>
-                  <Link href="/forgot-password" className="text-sm text-primary hover:underline">
+                  <Label htmlFor="password" className="text-gray-300">Password</Label>
+                  <Link href="/forgot-password" className="text-sm text-[#22b5f3] hover:underline">
                     Forgot password?
                   </Link>
                 </div>
@@ -103,24 +104,25 @@ export default function Login() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]"
                 />
               </div>
 
-              <Button type="submit" className="w-full" disabled={isLoading}>
+              <Button type="submit" className="w-full bg-[#22b5f3] hover:bg-[#0071bc]" disabled={isLoading}>
                 {isLoading ? "Logging in..." : "Log in"}
               </Button>
             </form>
 
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <Separator className="w-full" />
+                <Separator className="w-full bg-gray-600" />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+                <span className="bg-[#333333] px-2 text-gray-400">Or continue with</span>
               </div>
             </div>
 
-            <Button variant="outline" type="button" className="w-full" onClick={handleGoogleLogin} disabled={isLoading}>
+            <Button variant="outline" type="button" className="w-full border-[#22b5f3] text-[#22b5f3] hover:bg-[#22b5f3] hover:text-white" onClick={handleGoogleLogin} disabled={isLoading}>
               <svg viewBox="0 0 24 24" className="h-5 w-5 mr-2" aria-hidden="true">
                 <path
                   d="M12.0003 4.75C13.7703 4.75 15.3553 5.36002 16.6053 6.54998L20.0303 3.125C17.9502 1.19 15.2353 0 12.0003 0C7.31028 0 3.25527 2.69 1.28027 6.60998L5.27028 9.70498C6.21525 6.86002 8.87028 4.75 12.0003 4.75Z"
@@ -144,9 +146,9 @@ export default function Login() {
           </CardContent>
 
           <CardFooter className="flex flex-col space-y-4">
-            <div className="text-center text-sm">
+            <div className="text-center text-sm text-gray-300">
               Don&apos;t have an account?{" "}
-              <Link href="/register" className="text-primary hover:underline">
+              <Link href="/register" className="text-[#22b5f3] hover:underline">
                 Sign up
               </Link>
             </div>

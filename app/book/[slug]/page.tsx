@@ -30,7 +30,7 @@ export default function BookingRequest() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-[#222222]">
       <Navigation />
 
       <main className="flex-1 pt-16">
@@ -39,59 +39,59 @@ export default function BookingRequest() {
             {!submitted ? (
               <>
                 <div className="mb-8">
-                  <h1 className="text-3xl font-bold font-heading">Book DJ Niotech</h1>
-                  <p className="text-muted-foreground mt-2">
+                  <h1 className="text-3xl font-bold font-heading text-white">Book DJ Niotech</h1>
+                  <p className="text-gray-300 mt-2">
                     Fill out the form below to request a booking for your event
                   </p>
                 </div>
 
                 <div className="grid gap-8 md:grid-cols-3">
                   <div className="md:col-span-2">
-                    <Card>
+                    <Card className="bg-[#333333] border-[#22b5f3]/20">
                       <CardHeader>
-                        <CardTitle>Event Details</CardTitle>
-                        <CardDescription>Provide information about your event</CardDescription>
+                        <CardTitle className="text-white">Event Details</CardTitle>
+                        <CardDescription className="text-gray-300">Provide information about your event</CardDescription>
                       </CardHeader>
                       <CardContent>
                         <form onSubmit={handleSubmit} className="space-y-6">
                           <div className="space-y-4">
                             <div className="grid gap-4 md:grid-cols-2">
                               <div className="space-y-2">
-                                <Label htmlFor="company">Company/Organization Name</Label>
-                                <Input id="company" placeholder="Your company name" required />
+                                <Label htmlFor="company" className="text-gray-300">Company/Organization Name</Label>
+                                <Input id="company" placeholder="Your company name" required className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]" />
                               </div>
                               <div className="space-y-2">
-                                <Label htmlFor="legal-form">Legal Form</Label>
-                                <Input id="legal-form" placeholder="e.g., LLC, Ltd" required />
+                                <Label htmlFor="legal-form" className="text-gray-300">Legal Form</Label>
+                                <Input id="legal-form" placeholder="e.g., LLC, Ltd" required className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]" />
                               </div>
                             </div>
 
                             <div className="space-y-2">
-                              <Label htmlFor="registration">Company Registration Number</Label>
-                              <Input id="registration" placeholder="Registration number" />
+                              <Label htmlFor="registration" className="text-gray-300">Company Registration Number</Label>
+                              <Input id="registration" placeholder="Registration number" className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]" />
                             </div>
 
                             <div className="grid gap-4 md:grid-cols-2">
                               <div className="space-y-2">
-                                <Label htmlFor="event-name">Event Name</Label>
-                                <Input id="event-name" placeholder="Name of your event" required />
+                                <Label htmlFor="event-name" className="text-gray-300">Event Name</Label>
+                                <Input id="event-name" placeholder="Name of your event" required className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]" />
                               </div>
                               <div className="space-y-2">
-                                <Label htmlFor="event-date">Event Date</Label>
+                                <Label htmlFor="event-date" className="text-gray-300">Event Date</Label>
                                 <Popover>
                                   <PopoverTrigger asChild>
                                     <Button
                                       variant="outline"
                                       className={cn(
-                                        "w-full justify-start text-left font-normal",
-                                        !date && "text-muted-foreground",
+                                        "w-full justify-start text-left font-normal border-gray-600 text-gray-300 hover:bg-[#22b5f3] hover:text-white",
+                                        !date && "text-gray-400",
                                       )}
                                     >
                                       <CalendarIcon className="mr-2 h-4 w-4" />
                                       {date ? format(date, "PPP") : "Select date"}
                                     </Button>
                                   </PopoverTrigger>
-                                  <PopoverContent className="w-auto p-0">
+                                  <PopoverContent className="w-auto p-0 bg-[#333333] border-[#22b5f3]/20">
                                     <CalendarComponent mode="single" selected={date} onSelect={setDate} initialFocus />
                                   </PopoverContent>
                                 </Popover>
@@ -100,64 +100,65 @@ export default function BookingRequest() {
 
                             <div className="grid gap-4 md:grid-cols-2">
                               <div className="space-y-2">
-                                <Label htmlFor="venue">Venue Name</Label>
-                                <Input id="venue" placeholder="Name of the venue" required />
+                                <Label htmlFor="venue" className="text-gray-300">Venue Name</Label>
+                                <Input id="venue" placeholder="Name of the venue" required className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]" />
                               </div>
                               <div className="space-y-2">
-                                <Label htmlFor="address">Venue Address</Label>
-                                <Input id="address" placeholder="Full address of venue" required />
+                                <Label htmlFor="address" className="text-gray-300">Venue Address</Label>
+                                <Input id="address" placeholder="Full address of venue" required className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]" />
                               </div>
                             </div>
 
                             <div className="grid gap-4 md:grid-cols-3">
                               <div className="space-y-2">
-                                <Label htmlFor="capacity">Venue Capacity</Label>
-                                <Input id="capacity" type="number" placeholder="e.g., 500" required />
+                                <Label htmlFor="capacity" className="text-gray-300">Venue Capacity</Label>
+                                <Input id="capacity" type="number" placeholder="e.g., 500" required className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]" />
                               </div>
                               <div className="space-y-2">
-                                <Label htmlFor="ticket-price">Average Ticket Price</Label>
-                                <Input id="ticket-price" placeholder="e.g., 10-15€" required />
+                                <Label htmlFor="ticket-price" className="text-gray-300">Average Ticket Price</Label>
+                                <Input id="ticket-price" placeholder="e.g., 10-15€" required className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]" />
                               </div>
                               <div className="space-y-2">
-                                <Label htmlFor="set-time">Set Time</Label>
-                                <Input id="set-time" placeholder="e.g., 01-03h" required />
+                                <Label htmlFor="set-time" className="text-gray-300">Set Time</Label>
+                                <Input id="set-time" placeholder="e.g., 01-03h" required className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]" />
                               </div>
                             </div>
 
                             <div className="grid gap-4 md:grid-cols-2">
                               <div className="space-y-2">
-                                <Label htmlFor="set-duration">Set Duration</Label>
-                                <Input id="set-duration" placeholder="e.g., 1.5/2h" required />
+                                <Label htmlFor="set-duration" className="text-gray-300">Set Duration</Label>
+                                <Input id="set-duration" placeholder="e.g., 1.5/2h" required className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]" />
                               </div>
                               <div className="space-y-2">
-                                <Label htmlFor="offer">Your Offer</Label>
-                                <Input id="offer" placeholder="e.g., 1500€" required />
+                                <Label htmlFor="offer" className="text-gray-300">Your Offer</Label>
+                                <Input id="offer" placeholder="e.g., 1500€" required className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]" />
                               </div>
                             </div>
 
                             <div className="space-y-2">
-                              <Label htmlFor="additional">Additional Information</Label>
+                              <Label htmlFor="additional" className="text-gray-300">Additional Information</Label>
                               <Textarea
                                 id="additional"
                                 placeholder="Any other details about your event, requirements, etc."
                                 rows={4}
+                                className="bg-[#222222] border-gray-600 text-white placeholder:text-gray-400 focus:border-[#22b5f3]"
                               />
                             </div>
 
                             <div className="space-y-2">
-                              <Label>Upload Contract (Optional)</Label>
-                              <div className="border-2 border-dashed rounded-md p-6 flex flex-col items-center justify-center">
-                                <Upload className="h-8 w-8 text-muted-foreground mb-2" />
-                                <p className="text-sm text-muted-foreground mb-1">
+                              <Label className="text-gray-300">Upload Contract (Optional)</Label>
+                              <div className="border-2 border-dashed border-gray-600 rounded-md p-6 flex flex-col items-center justify-center bg-[#222222]">
+                                <Upload className="h-8 w-8 text-gray-400 mb-2" />
+                                <p className="text-sm text-gray-300 mb-1">
                                   Drag and drop files here or click to browse
                                 </p>
-                                <p className="text-xs text-muted-foreground">Supports PDF, DOC, DOCX (Max 5MB)</p>
+                                <p className="text-xs text-gray-400">Supports PDF, DOC, DOCX (Max 5MB)</p>
                                 <Input type="file" className="hidden" id="file-upload" accept=".pdf,.doc,.docx" />
                                 <Button
                                   type="button"
                                   variant="outline"
                                   size="sm"
-                                  className="mt-4"
+                                  className="mt-4 border-[#22b5f3] text-[#22b5f3] hover:bg-[#22b5f3] hover:text-white"
                                   onClick={() => document.getElementById("file-upload")?.click()}
                                 >
                                   Select File
@@ -166,7 +167,7 @@ export default function BookingRequest() {
                             </div>
                           </div>
 
-                          <Button type="button" onClick={() => router.push(`/book/${slug}/request`)} className="w-full">
+                          <Button type="button" onClick={() => router.push(`/book/${slug}/request`)} className="w-full bg-[#22b5f3] hover:bg-[#0071bc]">
                             Submit Booking Request
                           </Button>
                         </form>
@@ -175,13 +176,13 @@ export default function BookingRequest() {
                   </div>
 
                   <div>
-                    <Card>
+                    <Card className="bg-[#333333] border-[#22b5f3]/20">
                       <CardHeader>
-                        <CardTitle>DJ Niotech</CardTitle>
-                        <CardDescription>Techno DJ & Producer</CardDescription>
+                        <CardTitle className="text-white">DJ Niotech</CardTitle>
+                        <CardDescription className="text-gray-300">Techno DJ & Producer</CardDescription>
                       </CardHeader>
                       <CardContent>
-                        <div className="aspect-square relative rounded-md overflow-hidden mb-4">
+                        <div className="aspect-square relative rounded-md overflow-hidden mb-4 border border-gray-600">
                           <Image
                             src="/placeholder.svg?height=300&width=300"
                             alt="DJ Niotech"
@@ -192,20 +193,20 @@ export default function BookingRequest() {
 
                         <div className="space-y-4">
                           <div className="flex items-center">
-                            <MapPin className="h-4 w-4 text-primary mr-2" />
-                            <span className="text-sm">Berlin, Germany</span>
+                            <MapPin className="h-4 w-4 text-[#22b5f3] mr-2" />
+                            <span className="text-sm text-gray-300">Berlin, Germany</span>
                           </div>
                           <div className="flex items-center">
-                            <Clock className="h-4 w-4 text-primary mr-2" />
-                            <span className="text-sm">1.5 - 2 hour sets</span>
+                            <Clock className="h-4 w-4 text-[#22b5f3] mr-2" />
+                            <span className="text-sm text-gray-300">1.5 - 2 hour sets</span>
                           </div>
                           <div className="flex items-center">
-                            <CalendarIcon className="h-4 w-4 text-primary mr-2" />
-                            <span className="text-sm">Check availability calendar</span>
+                            <CalendarIcon className="h-4 w-4 text-[#22b5f3] mr-2" />
+                            <span className="text-sm text-gray-300">Check availability calendar</span>
                           </div>
                           <div className="flex items-center">
-                            <DollarSign className="h-4 w-4 text-primary mr-2" />
-                            <span className="text-sm">€1000 - €1500 typical fee</span>
+                            <DollarSign className="h-4 w-4 text-[#22b5f3] mr-2" />
+                            <span className="text-sm text-gray-300">€1000 - €1500 typical fee</span>
                           </div>
                         </div>
                       </CardContent>
@@ -214,15 +215,15 @@ export default function BookingRequest() {
                 </div>
               </>
             ) : (
-              <Card className="text-center p-8">
-                <div className="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+              <Card className="text-center p-8 bg-[#333333] border-[#22b5f3]/20">
+                <div className="mx-auto w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 border border-green-500/20">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-8 h-8 text-green-600"
+                    className="w-8 h-8 text-green-400"
                   >
                     <path
                       strokeLinecap="round"
@@ -231,16 +232,16 @@ export default function BookingRequest() {
                     />
                   </svg>
                 </div>
-                <h2 className="text-2xl font-bold font-heading mb-2">Booking Request Sent!</h2>
-                <p className="text-muted-foreground mb-6">
+                <h2 className="text-2xl font-bold font-heading mb-2 text-white">Booking Request Sent!</h2>
+                <p className="text-gray-300 mb-6">
                   Your booking request for DJ Niotech has been submitted successfully. The artist will review your
                   request and respond shortly.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Button variant="outline" onClick={() => setSubmitted(false)}>
+                  <Button variant="outline" onClick={() => setSubmitted(false)} className="border-[#22b5f3] text-[#22b5f3] hover:bg-[#22b5f3] hover:text-white">
                     Submit Another Request
                   </Button>
-                  <Button>View Your Requests</Button>
+                  <Button className="bg-[#22b5f3] hover:bg-[#0071bc]">View Your Requests</Button>
                 </div>
               </Card>
             )}
