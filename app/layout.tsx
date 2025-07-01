@@ -13,26 +13,26 @@ const inter = Inter({
 })
 
 // Keep the Neue Machina font for headings
-const neueMachina = localFont({
-  src: [
-    {
-      path: "../public/fonts/NeueMachina-Light.woff2",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/NeueMachina-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/NeueMachina-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-neue-machina",
-})
+//const neueMachina = localFont({
+//  src: [
+//    {
+//      path: "../public/fonts/NeueMachina-Light.woff2",
+//      weight: "300",
+//      style: "normal",
+//    },
+//    {
+//      path: "../public/fonts/NeueMachina-Regular.woff2",
+//      weight: "400",
+//      style: "normal",
+//    },
+//    {
+//      path: "../public/fonts/NeueMachina-Bold.woff2",
+//      weight: "700",
+//      style: "normal",
+//    },
+//  ],
+//  variable: "--font-neue-machina",
+//})
 
 export const metadata: Metadata = {
   title: "Bookee - Connect with Artists",
