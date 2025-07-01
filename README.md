@@ -42,7 +42,7 @@ npm run dev
 ## 👥 Contributors
 
 - Leo (@ljNasr)  
-- Taha (@tahagithubhandle)
+- Taha (@MirhanTanriverdi)
 
 ---
 
